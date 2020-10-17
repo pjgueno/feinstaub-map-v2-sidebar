@@ -20,6 +20,9 @@
 <meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png">
 <meta name="msapplication-config" content="/favicons/browserconfig.xml">
 <meta name="theme-color" content="#ffffff">
+    
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
 
 <style type="text/css">
 #loading_layer {
@@ -44,17 +47,75 @@
 	<title>Map Sensor.Community</title>
 </head>
 <body>
-	<div id="topcontainer">
-		<div id="betterplace"></div>
-		<div id="update"></div>
-	</div>
-	<span id="menu">&#9776;</span>
-	<div id="loading_layer"><div id="loading">Loading data...</div></div>
-    <div id="sidebar" style="display: none;">
-		<div id="explanation"></div>
-		<div id="map-info" style="display: none;"></div>
-	</div>
-	<div id="UI_container">
+    
+<div id="sidebar" class="leaflet-sidebar collapsed">
+
+        <!-- nav tabs -->
+        <div class="leaflet-sidebar-tabs">
+            <!-- top aligned tabs -->
+            <ul role="tablist">
+                <li><a href="#home" role="tab"><i class="fa fa-bars active"></i></a></li>
+                <li><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
+                <li><a href="#pictures" role="tab"><i class="fa fa-camera"></i></a></li>
+                <li><a href="#cdv" role="tab"><i class="fa fa-user"></i></a></li>
+            </ul>
+
+            <!-- bottom aligned tabs -->
+            <ul role="tablist">
+                <li><a href="https://github.com/opendata-stuttgart/feinstaub-map-v2" target="_blank"><i class="fa fa-github"></i></a></li>
+            </ul>
+        </div>
+    <div class="leaflet-sidebar-content">
+            <div class="leaflet-sidebar-pane" id="home">
+                <h1 class="leaflet-sidebar-header">
+                    SENSOR.COMMUNITY
+                    <span class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></span>
+                </h1>
+                    
+               <div id="map-info"></div>
+                
+            </div>
+
+            <div class="leaflet-sidebar-pane" id="settings">
+                <h1 class="leaflet-sidebar-header">
+                    SELECTOR
+                    <span class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></span>
+                </h1>
+                
+<!--                	<div id="UI_container">-->
+        
+        
+        
+        
+		<div id="custom-select" class="custom-select" style="display: none;">
+			<select>
+				<option value="PM10"> PM10</option>
+				<option value="PM25"> PM2.5</option>
+				<option value="Official_AQI_US"> Official AQI US</option>
+				<option value="Temperature"> Temperature</option>
+				<option value="Humidity"> rel. Humidity</option>
+				<option value="Pressure"> Pressure</option>
+				<option value="Noise"> Noise</option>
+			</select>
+		</div>
+        
+		<div id="layer-select" class="layer-select">
+			<input type="checkbox" id="cb_labs" name="labs" checked="checked" /><label for="cb_labs" id="label_local_labs">Local labs</label><br/>
+			<input type="checkbox" id="cb_wind" name="wind" checked="checked" /><label for="cb_wind" id="label_wind_layer">Wind layer</label><br/>
+			<!-- <input type="checkbox" id="cb_eustations" name="eustations" checked="" /><label for="cb_eustations" id="label_eustations">EU stations</label><br/> -->
+		</div>
+<!--	</div>-->
+                
+                
+            </div>
+        
+                    <div class="leaflet-sidebar-pane" id="pictures">
+                <h1 class="leaflet-sidebar-header">
+                    LEGEND
+                    <span class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></span>
+                </h1>
+                            
+                        
 		<div id ='legendcontainer'>
 			<div class ="legend" id="legend_PM10" style="display: none;">
 				<div class="legend-inner">
@@ -163,22 +224,42 @@
 				</div>
 			</div> 
 		</div>
-		<div id="custom-select" class="custom-select" style="display: none;">
-			<select>
-				<option value="PM10"> PM10</option>
-				<option value="PM25"> PM2.5</option>
-				<option value="Official_AQI_US"> Official AQI US</option>
-				<option value="Temperature"> Temperature</option>
-				<option value="Humidity"> rel. Humidity</option>
-				<option value="Pressure"> Pressure</option>
-				<option value="Noise"> Noise</option>
-			</select>
-		</div>
-		<div id="layer-select" class="layer-select">
-			<input type="checkbox" id="cb_labs" name="labs" checked="checked" /><label for="cb_labs" id="label_local_labs">Local labs</label><br/>
-			<input type="checkbox" id="cb_wind" name="wind" checked="checked" /><label for="cb_wind" id="label_wind_layer">Wind layer</label><br/>
-			<!-- <input type="checkbox" id="cb_eustations" name="eustations" checked="" /><label for="cb_eustations" id="label_eustations">EU stations</label><br/> -->
-		</div>
+        
+        
+            
+            </div>
+        
+        <div class="leaflet-sidebar-pane" id="cdv">
+                <h1 class="leaflet-sidebar-header">
+                    DONATE
+                    <span class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></span>
+                </h1>
+                
+            <div id="betterplace"></div>
+                
+            </div>
+
+            <div class="leaflet-sidebar-pane" id="messages">
+                <h1 class="leaflet-sidebar-header">Messages<span class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+            </div>
+        </div>
+</div>
+    
+	<div id="loading_layer"><div id="loading">Loading data...</div></div>
+
+
+<!--
+
+	<span id="menu">&#9776;</span>
+    <div id="sidebar" style="display: none;">
+		<div id="explanation"></div>
+		<div id="map-info" style="display: none;"></div>
+	</div>
+    
+-->
+    
+    <div id="topcontainer">
+		<div id="update"></div>
 	</div>
 
 	<div id='map'>

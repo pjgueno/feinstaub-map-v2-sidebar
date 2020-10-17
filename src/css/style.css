@@ -15,6 +15,7 @@ body {
     pointer-events: none;
 }
 
+
 #betterplace {
     font-size: 0.9em;
     text-align: center;
@@ -47,7 +48,7 @@ body {
     font-size: 0.8em;
     position: relative;
     top: 10px;
-    left: 10px;
+    left: 350px;
     float: left;
     padding: 5px 10px;
     text-align: center;
@@ -55,6 +56,7 @@ body {
     z-index: 900;
     background-color: rgba(56, 181, 173, 0.6);
 }
+
 
 #map {
     position: absolute;
@@ -65,6 +67,7 @@ body {
     z-index: 0;
 }
 
+/*
 #UI_container {
     position: absolute;
     left: 0;
@@ -75,20 +78,21 @@ body {
     vertical-align: bottom;
     pointer-events: none;
 }
+*/
 
 .custom-select {
     color: black;
     font-weight: bold;
     font-size: 1.1rem;
-    width: 14em;
+    width: 12em;
     height: 2.2rem;
     display: inline-block;
     background-color: rgba(56, 181, 173, 0.8);
     border-radius: 8px;
     border: 1px solid transparent;
     position: absolute;
-    bottom: 4rem;
-    margin-left: 1rem;
+    top: 15rem;
+/*    margin-left: 1rem;*/
     pointer-events: auto;
 }
 
@@ -97,7 +101,7 @@ body {
 }
 
 .custom-select select {
-    display: none; /*hide original SELECT element:*/
+    display: none; 
 }
 
 .select-selected {
@@ -115,16 +119,13 @@ body {
     padding-left: 10px;
 }
 
-/*point the arrow downwards when the select box is open (active):*/
 .select-selected.select-arrow-active:after {
     content: "▼"
 }
 
-/*point the arrow upwards when the select box is closed (inactive):*/
 .select-selected.select-arrow-inactive:after {
     content: "▲"
 }
-/*style the items (options), including the selected item:*/
 .select-items div, .select-selected {
     color: #ffffff;
     padding: 8px 16px;
@@ -150,20 +151,21 @@ body {
     color: white;
     font-weight: bold;
     font-size: 1.1rem;
-    width: 14em;
+    width: 12em;
     display: inline-block;
     background-color: rgba(56, 181, 173, 0.8);
     border-radius: 8px;
     border: 1px solid transparent;
     position: absolute;
-    bottom: 0.5rem;
-    margin-left: 1rem;
+    top: 18rem;
+/*    margin-left: 1rem;*/
     pointer-events: auto;
 }
 
 .layer-select:hover, .layer-select:focus {
     background-color: rgb(49, 135, 127);
 }
+/*
 
 #explanation {
     padding: 20px;
@@ -178,6 +180,7 @@ body {
     font-family: arial, sans-serif;
     color: black;
 }
+*/
 
 #legendcontainer {
     display: inline-block;
@@ -185,6 +188,8 @@ body {
     height: 100%;
     background-color: rgba(255, 255, 255, 0.8);
 }
+
+
 
 .legend {
     font-family: arial, sans-serif;
@@ -257,6 +262,7 @@ body {
     background: linear-gradient(to top, #00528f 0%, #6dbcff 20%, #aff474 40%, #f4e60b 60%, #f47a0b 80%, #c41a0a 100%);
 }
 
+
 #legend_Official_AQI_US {
     width: 10em;
     height: auto;
@@ -276,6 +282,7 @@ body {
     margin: 5px 10px;
     list-style-type: none;
 }
+
 
 
 li {
@@ -392,6 +399,7 @@ tr {
 .hexbin-hexagon {
     stroke-width: 0;
 }
+/*
 
 #menu {
     background-color: rgba(56, 181, 173, 1);
@@ -423,9 +431,10 @@ tr {
     overflow-y: auto;
 }
 
+*/
 
 .leaflet-control {
-    margin-top: 110px !important;
+/*    margin-top: 110px !important;*/
 }
 
 #noise_option::after {
@@ -498,3 +507,204 @@ tr {
 .leaflet-control-velocity {
 	display: none;
 }
+
+
+.leaflet-sidebar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+  z-index: 2000; }
+
+  .leaflet-sidebar.collapsed {
+    width: 40px; }
+  @media (min-width: 768px) {
+    .leaflet-sidebar {
+      top: 10px;
+      bottom: 10px;
+      transition: width 500ms; } }
+  @media (min-width: 768px) and (max-width: 991px) {
+    .leaflet-sidebar {
+      width: 305px;
+      max-width: 305px; } }
+  @media (min-width: 992px) and (max-width: 1199px) {
+    .leaflet-sidebar {
+      width: 390px;
+      max-width: 390px; } }
+  @media (min-width: 1200px) {
+    .leaflet-sidebar {
+      width: 460px;
+      max-width: 460px; } }
+
+.leaflet-sidebar-left {
+  left: 0; }
+  @media (min-width: 768px) {
+    .leaflet-sidebar-left {
+      left: 10px; } }
+
+.leaflet-sidebar-right {
+  right: 0; }
+  @media (min-width: 768px) {
+    .leaflet-sidebar-right {
+      right: 10px; } }
+
+.leaflet-sidebar-tabs {
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  background-color: #fff; }
+  .leaflet-sidebar-left .leaflet-sidebar-tabs {
+    left: 0; }
+  .leaflet-sidebar-right .leaflet-sidebar-tabs {
+    right: 0; }
+  .leaflet-sidebar-tabs, .leaflet-sidebar-tabs > ul {
+    position: absolute;
+    width: 40px;
+    margin: 0;
+    padding: 0;
+    list-style-type: none; }
+    .leaflet-sidebar-tabs > li, .leaflet-sidebar-tabs > ul > li {
+      width: 100%;
+      height: 40px;
+      color: #333;
+      font-size: 12pt;
+      overflow: hidden;
+      transition: all 80ms; }
+      .leaflet-sidebar-tabs > li:hover, .leaflet-sidebar-tabs > ul > li:hover {
+        color: #000;
+        background-color: #eee; }
+      .leaflet-sidebar-tabs > li.active, .leaflet-sidebar-tabs > ul > li.active {
+        color: #fff;
+        background-color: #0074d9; }
+      .leaflet-sidebar-tabs > li.disabled, .leaflet-sidebar-tabs > ul > li.disabled {
+        color: rgba(51, 51, 51, 0.4); }
+        .leaflet-sidebar-tabs > li.disabled:hover, .leaflet-sidebar-tabs > ul > li.disabled:hover {
+          background: transparent; }
+        .leaflet-sidebar-tabs > li.disabled > a, .leaflet-sidebar-tabs > ul > li.disabled > a {
+          cursor: default; }
+      .leaflet-sidebar-tabs > li > a, .leaflet-sidebar-tabs > ul > li > a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        line-height: 40px;
+        color: inherit;
+        text-decoration: none;
+        text-align: center;
+        cursor: pointer; }
+  .leaflet-sidebar-tabs > ul + ul {
+    bottom: 0; }
+
+.leaflet-sidebar-content {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.95);
+  overflow-x: hidden;
+  overflow-y: auto; }
+  .leaflet-sidebar-left .leaflet-sidebar-content {
+    left: 40px;
+    right: 0; }
+  .leaflet-sidebar-right .leaflet-sidebar-content {
+    left: 0;
+    right: 40px; }
+  .leaflet-sidebar.collapsed > .leaflet-sidebar-content {
+    overflow-y: hidden; }
+
+.collapsed > .leaflet-sidebar-content {
+  overflow-y: hidden; }
+
+.leaflet-sidebar-pane {
+  display: none;
+  left: 0;
+  right: 0;
+  box-sizing: border-box;
+  padding: 10px 20px; }
+  .leaflet-sidebar-pane.active {
+    display: block; }
+  @media (min-width: 768px) and (max-width: 991px) {
+    .leaflet-sidebar-pane {
+      min-width: 265px; } }
+  @media (min-width: 992px) and (max-width: 1199px) {
+    .leaflet-sidebar-pane {
+      min-width: 350px; } }
+  @media (min-width: 1200px) {
+    .leaflet-sidebar-pane {
+      min-width: 420px; } }
+
+.leaflet-sidebar-header {
+  margin: -10px -20px 0;
+  height: 40px;
+  padding: 0 20px;
+  line-height: 40px;
+  font-size: 14.4pt;
+  color: #fff;
+  background-color: #0074d9; }
+  .leaflet-sidebar-right .leaflet-sidebar-header {
+    padding-left: 40px; }
+
+.leaflet-sidebar-close {
+  position: absolute;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  cursor: pointer; }
+  .leaflet-sidebar-left .leaflet-sidebar-close {
+    right: 0; }
+  .leaflet-sidebar-right .leaflet-sidebar-close {
+    left: 0; }
+
+.leaflet-sidebar {
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65); }
+  @media (min-width: 768px) {
+    .leaflet-sidebar {
+      border-radius: 4px; }
+      .leaflet-sidebar.leaflet-touch {
+        border: 2px solid rgba(0, 0, 0, 0.2); } }
+
+.leaflet-sidebar-left.leaflet-touch {
+  box-shadow: none;
+  border-right: 2px solid rgba(0, 0, 0, 0.2); }
+
+@media (min-width: 768px) {
+  .leaflet-sidebar-left ~ .leaflet-control-container .leaflet-left {
+    transition: left 500ms; } }
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .leaflet-sidebar-left ~ .leaflet-control-container .leaflet-left {
+    left: 315px; } }
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .leaflet-sidebar-left ~ .leaflet-control-container .leaflet-left {
+    left: 400px; } }
+
+@media (min-width: 1200px) {
+  .leaflet-sidebar-left ~ .leaflet-control-container .leaflet-left {
+    left: 470px; } }
+
+.leaflet-sidebar-left.collapsed ~ .leaflet-control-container .leaflet-left {
+  left: 50px; }
+
+.leaflet-sidebar-right.leaflet-touch {
+  box-shadow: none;
+  border-left: 2px solid rgba(0, 0, 0, 0.2); }
+
+@media (min-width: 768px) {
+  .leaflet-sidebar-right ~ .leaflet-control-container .leaflet-right {
+    transition: right 500ms; } }
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .leaflet-sidebar-right ~ .leaflet-control-container .leaflet-right {
+    right: 315px; } }
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .leaflet-sidebar-right ~ .leaflet-control-container .leaflet-right {
+    right: 400px; } }
+
+@media (min-width: 1200px) {
+  .leaflet-sidebar-right ~ .leaflet-control-container .leaflet-right {
+    right: 470px; } }
+
+.leaflet-sidebar-right.collapsed ~ .leaflet-control-container .leaflet-right {
+  right: 50px; }

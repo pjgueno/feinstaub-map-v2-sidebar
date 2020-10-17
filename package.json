@@ -43,6 +43,7 @@
     "d3-transition": "^2.0.0",
     "leaflet": "^1.6.0",
     "leaflet-hash": "^0.2.1",
+    "leaflet-sidebar-v2": "^3.2.3",
     "leaflet-velocity": "^1.7.0",
     "lodash": "^4.17.15",
     "whatwg-fetch": "^3.0.0"

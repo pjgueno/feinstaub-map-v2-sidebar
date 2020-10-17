@@ -30,6 +30,8 @@ import * as translate from './translate.js';
 // favicon config
 import './static-files'
 
+import leafletSidebarV2 from 'leaflet-sidebar-v2';
+
 // declare variables
 let hexagonheatmap, hmhexaPM_aktuell, hmhexaPM_AQI, hmhexa_t_h_p, hmhexa_noise;
 
@@ -117,6 +119,14 @@ const tiles = L.tileLayer(config.tiles, {
 }).addTo(map);
 
 new L.Hash(map);
+
+var sidebar = L.control.sidebar({
+    autopan: false,       // whether to maintain the centered map point when opening the sidebar
+    closeButton: true,    // whether t add a close button to the panes
+    container: 'sidebar', // the DOM container or #ID of a predefined sidebar container that should be used
+    position: 'left',     // left or right
+}).addTo(map);
+
 
 // define query object
 const query = {
@@ -398,7 +408,13 @@ window.onload = function () {
 
 	// enable elements
 	// d3.select('#legend_PM10').style("display", "block");
-	d3.select('#explanation').html(translate.tr(lang, 'Show explanation'));
+    
+    
+//	d3.select('#explanation').html(translate.tr(lang, 'Show explanation'));
+    
+    
+    
+    
 	d3.select('#map-info').html(translate.tr(lang, "<p>The hexagons represent the median of the current values of the sensors which are contained in the area, according to the option selected (PM10, PM2.5, temperature, relative humidity, pressure, AQI). You can refer to the scale on the left side of the map.</p> \
 <p>By clicking on a hexagon, you can display a list of all the corresponding sensors as a table. The first column lists the sensor-IDs. In the first line, you can see the amount of sensor in the area and the median value.</p> \
 <p>By clicking on the plus symbol next to a sensor ID, you can display two graphics: the individual measurements for the last 24 hours and the 24 hours floating mean for the last seven days. For technical reasons, the first of the 8 days displayed on the graphic has to stay empty.\
@@ -406,8 +422,8 @@ The values are refreshed every 5 minutes in order to fit with the measurement fr
 <p>The Air Quality Index (AQI) is calculated according to the recommandations of the United States Environmental Protection Agency. Further information is available on the official page.(<a href='https://www.airnow.gov/aqi/aqi-basics/'>Link</a>). Hover over the AQI scale to display the levels of health concern.</p>"));
 	d3.select('#betterplace').html("<a title='" + translate.tr(lang, "Donate for Sensor.Community (Hardware, Software) now on Betterplace.org") + " href='https://www.betterplace.org/de/projects/38071-fur-den-feinstaub-sensor-sds011-als-bastel-kit-spenden/' target='_blank' rel='noreferrer'>" + translate.tr(lang, "Donate for<br/>Sensor.Community<br/>now on<br/><span>Betterplace.org</span>") + "</a>");
 
-	d3.select("#menu").on("click", toggleSidebar);
-	d3.select("#explanation").on("click", toggleExplanation);
+//	d3.select("#menu").on("click", toggleSidebar);
+//	d3.select("#explanation").on("click", toggleExplanation);
 	d3.select("#legend_Official_AQI_US").selectAll(".tooltip").on("click", function () {
 		window.open('https://www.airnow.gov/index.cfm?action=aqibasics.aqi', '_blank');
 		return false;
@@ -562,35 +578,35 @@ function switchLegend(val) {
 }
 
 /*  Menu and Dropdown */
-function openSidebar() {
-	document.getElementById("menu").innerHTML = "&#10006;";
-	document.getElementById("sidebar").style.display = "block";
-}
-
-function closeSidebar() {
-	document.getElementById("menu").innerHTML = "&#9776;";
-	document.getElementById("sidebar").style.display = "none";
-	d3.select("#results").remove();
-}
-
-function toggleSidebar() {
-	if (document.getElementById("sidebar").style.display === "block") {
-		closeSidebar();
-	} else {
-		openSidebar()
-	}
-}
-
-function toggleExplanation() {
-	const x = document.getElementById("map-info");
-	if (x.style.display === "none") {
-		x.style.display = "block";
-		d3.select("#explanation").html(translate.tr(lang, "Hide explanation"));
-	} else {
-		x.style.display = "none";
-		d3.select("#explanation").html(translate.tr(lang, "Show explanation"));
-	}
-}
+//function openSidebar() {
+//	document.getElementById("menu").innerHTML = "&#10006;";
+//	document.getElementById("sidebar").style.display = "block";
+//}
+//
+//function closeSidebar() {
+//	document.getElementById("menu").innerHTML = "&#9776;";
+//	document.getElementById("sidebar").style.display = "none";
+//	d3.select("#results").remove();
+//}
+//
+//function toggleSidebar() {
+//	if (document.getElementById("sidebar").style.display === "block") {
+//		closeSidebar();
+//	} else {
+//		openSidebar()
+//	}
+//}
+//
+//function toggleExplanation() {
+//	const x = document.getElementById("map-info");
+//	if (x.style.display === "none") {
+//		x.style.display = "block";
+//		d3.select("#explanation").html(translate.tr(lang, "Hide explanation"));
+//	} else {
+//		x.style.display = "none";
+//		d3.select("#explanation").html(translate.tr(lang, "Show explanation"));
+//	}
+//}
 
 function ready(num) {
 	const dateParser = timeParse("%Y-%m-%d %H:%M:%S");
@@ -626,7 +642,7 @@ function ready(num) {
 function reloadMap(val) {
 	d3.selectAll('path.hexbin-hexagon').remove();
 
-	closeSidebar();
+//	closeSidebar();
 	switchLegend(val);
 
 	hexagonheatmap.initialize(scale_options[val]);
