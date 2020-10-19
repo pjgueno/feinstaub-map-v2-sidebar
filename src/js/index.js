@@ -103,7 +103,10 @@ const panelIDs = {
 	"Noise": [0, 12]
 };
 
-const div = d3.select("#sidebar").append("div").attr("id", "table").style("display", "none");
+//const div = d3.select("#sidebar").append("div").attr("id", "table").style("display", "none");
+
+const div = d3.select("#tableau").append("div").attr("id", "table").style("display", "none");
+
 
 const map = L.map('map', {zoomControl: true, minZoom: config.minZoom, maxZoom: config.maxZoom, doubleClickZoom: false});
 
@@ -665,7 +668,9 @@ function sensorNr(data) {
 		inner_pre = "(+) #";
 	}
 
-	openSidebar();
+	//openSidebar();
+    
+    sidebar.open('tableau');
 
 	let textefin = "<table id='results' style='width:380px;'><tr><th class ='title'>" + translate.tr(lang, 'Sensor') + "</th><th class = 'title'>" + translate.tr(lang, titles[user_selected_value]) + "</th></tr>";
 	if (data.length > 1) {
